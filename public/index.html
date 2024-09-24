@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 图像识别系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>AI 图像识别系统</h1>
+    </header>
+
+    <div class="container">
+        <aside id="log-section">
+            <h2>操作日志</h2>
+            <div id="logContainer" style="max-height: 400px; overflow-y: auto; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+                <!-- 日志内容将显示在这里 -->
+            </div>
+        </aside>
+
+        <main>
+            <section id="upload-section">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" id="imageUpload" name="image" accept="image/*" style="display:none;">
+                    <input type="file" id="videoUpload" name="video" accept="video/*" style="display:none;">
+                    <div class="button-group">
+                        <button type="button" id="selectImageButton">选择图片</button>
+                        <button type="button" id="selectVideoButton">选择视频</button>
+                        <button type="button" id="selectCameraButton">选择摄像头</button>
+                        <button type="button" id="startMonitoringButton" style="display:none;">开始监控</button>
+                        <button type="button" id="stopMonitoringButton" style="display:none;">停止监控</button>
+                        <button type="button" id="uploadModelButton">模型加载</button>
+                        <button type="button" id="inferButton">推理结果</button>
+                    </div>
+                </form>
+            </section>
+        
+            <section id="result-section">
+                <h2>识别结果</h2>
+                <div id="resultContainer" style="display:none;">
+                    <img id="uploadedImage" alt="Uploaded Image" style="max-width: 100%; display:none;">
+                    <video id="uploadedVideo" controls style="display:none; max-width: 100%;"></video>
+                    <canvas id="resultCanvas" style="display:block; max-width: 100%;"></canvas> <!-- 添加位置 -->
+                    <div id="resultText"></div>
+                </div>
+            </section>
+            
+        </main>
+
+        <aside id="result-info">
+            <h2>识别信息</h2>
+            <div id="recognitionResult">
+                <p><strong>检测类别:</strong> <span id="recognizedObject">0</span></p>
+                <p><strong>检测数量:</strong> <span id="confidence">0</span></p>
+            </div>
+            <div id="ptz-controls">
+                <h3>云台控制</h3>
+                <div class="button-row">
+                    <button id="panLeftButton">左转</button>
+                    <button id="panRightButton">右转</button>
+                </div>
+                <div class="button-row">
+                    <button id="tiltUpButton">上仰</button>
+                    <button id="tiltDownButton">下俯</button>
+                </div>
+                <div class="button-row">
+                    <button id="zoomInButton">放大</button>
+                    <button id="zoomOutButton">缩小</button>
+                </div>
+            </div>
+        </aside>
+        
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AI 图像识别系统</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
